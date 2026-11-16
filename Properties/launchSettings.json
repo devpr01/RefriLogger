@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "RefriLogger": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:58014;http://localhost:58015"
+    }
+  }
+}
