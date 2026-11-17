@@ -1,0 +1,34 @@
+@host = http://localhost:5080
+
+### Health
+GET {{host}}/health
+
+### All known devices (last seen)
+GET {{host}}/api/v1/devices
+
+### Latest value of every sensor
+GET {{host}}/api/v1/readings/latest
+
+### Latest values for one device
+GET {{host}}/api/v1/readings/latest?deviceId=coldroom-01
+
+### Last hour of readings (default range), one device and sensor
+GET {{host}}/api/v1/readings?deviceId=coldroom-01&sensor=temperature&limit=20
+
+### Readings in a time range
+GET {{host}}/api/v1/readings?deviceId=coldroom-01&sensor=temperature&from=2026-11-16T00:00:00Z&to=2026-11-16T23:59:59Z&limit=500
+
+### All events (last hour)
+GET {{host}}/api/v1/events
+
+### Critical events only
+GET {{host}}/api/v1/events?severity=critical
+
+### Events for one device and type
+GET {{host}}/api/v1/events?deviceId=coldroom-01&type=DoorOpen&limit=50
+
+### Posting the reading
+POST {{host}}/api/v1/readings
+Content-Type: application/json
+
+[{"deviceId":"coldroom-99","sensor":"temperature","value":3.8,"unit":"C"}]
